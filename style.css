@@ -1,0 +1,50 @@
+/**********************************************************************
+PAGE: index.html - Memory Match Game
+**********************************************************************/
+header {
+	width: 1200px;
+	height: 125px;
+	border: 1px solid;
+	margin: 0 auto;
+	background: #000;
+}
+
+header img {
+	width: 250px;
+	height: 115px;
+}
+
+.game {
+	margin: 0 auto;
+	width: 1200px;
+	height: 775px;
+	border: 1px solid #0000ff;
+}
+
+.info {
+	width: 200px;
+	height: 775px;
+	float: left;
+	margin: 0;
+}
+
+.cards {
+	background: url(img/deepspace.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	display: inline-block;
+	width: 1000px;
+	height: 775px;
+	margin: 0;
+	text-align: center;
+	
+}
+
+.cards img {
+	border: 1px solid;
+	width: 150px;
+	height: 220px;
+	margin: 5px;
+	box-shadow: 0px 0px 10px #fff;
+}
