@@ -22,7 +22,6 @@ function click_card(card_back_id) {
 	first_card_front_src = card_front_id.attr('src');
 	console.log('Src: ', first_card_front_src);
 	
-	
 
 	if (!second_card_clicked) {
 		first_card_front_id = card_front_id;
@@ -37,6 +36,7 @@ function click_card(card_back_id) {
 			console.log('Second clicked id: ', card_front_id);// Redundant code*/
 			card_front_id.fadeOut(1000);
 			first_card_front_id.fadeOut(1000);
+			$('#xwing').animate({left: "+=35.5px"});
 			console.log('First clicked id: ',first_card_back_id)
 			second_card_clicked = false;
 		} else {
