@@ -39,15 +39,18 @@ header img {
 	display: inline-block;
 	width: 1000px;
 	height: 775px;
-	margin: 0;
-	text-align: center;
-	
+	margin: 0;	
 }
 
-.cards img {
+.card_container {
+	display: inline-block;
 	border: 1px solid;
 	width: 150px;
 	height: 220px;
 	margin: 5px;
 	box-shadow: 0px 0px 10px #fff;
+}
+
+.card_container img {
+	position: absolute;
 }
