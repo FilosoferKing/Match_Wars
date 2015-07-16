@@ -1,12 +1,18 @@
 /**********************************************************************
 PAGE: index.html - Memory Match Game
 **********************************************************************/
+body {
+	background: url(img/deepspaceedit.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
 header {
 	width: 1200px;
 	height: 125px;
 	border: 1px solid;
 	margin: 0 auto;
-	background: #000;
 }
 
 header img {
@@ -22,6 +28,7 @@ header img {
 }
 
 .info {
+	background: #000;
 	width: 200px;
 	height: 775px;
 	float: left;
@@ -29,10 +36,6 @@ header img {
 }
 
 .cards {
-	background: url(img/deepspace.jpg);
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: cover;
 	display: inline-block;
 	width: 1000px;
 	height: 775px;
