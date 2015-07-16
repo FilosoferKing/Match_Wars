@@ -6,12 +6,11 @@ function click_card(card_back_id, card_front_id) {
 	$(card_back_id).toggle();
 
 	var card_front_src = $(card_front_id).attr('src');
+	console.log($('#card_front_1'));
 	console.log('Src: ', card_front_src);
 
-	/*if(second_card_clicked) {
+	if(second_card_clicked) {
 		second_card_clicked = true;
-		console.log("Click status: true");
-	} else {
-		if()
-	}*/
+		console.log("Second click status: ", second_card_clicked);
+	} 
 }
