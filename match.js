@@ -2,7 +2,8 @@ var second_card_clicked = false;
 var first_card_front_src = null;
 var first_card_back_id = null;
 var first_card_front_id = null;
-var laser = false;
+var num = null;
+var score = 0;
 function click_card(card_back_id) {
 	test = card_back_id;
 
@@ -13,8 +14,6 @@ function click_card(card_back_id) {
 	
 	first_card_back_id = card_back_id;
 
-	/*var  = card_back_id.parent().find('.card_front');*/
-
 	
 	card_front_id = card_back_id.parent().find('.card_front');
 	var card_front_src = card_front_id.attr('src');
@@ -22,6 +21,7 @@ function click_card(card_back_id) {
 
 	first_card_front_src = card_front_id.attr('src');
 	console.log('Src: ', first_card_front_src);
+
 	
 
 	if (!second_card_clicked) {
@@ -31,14 +31,12 @@ function click_card(card_back_id) {
 		second_card_front_src = card_front_id.attr('src');
 		second_card_back_id = card_back_id;
 
-		
 
-		
 	} else {
 		if (first_card_front_src == second_card_front_src) {
 			console.log('You have a match');
-			card_front_id.fadeOut(1000);
-			first_card_front_id.fadeOut(1000);
+			card_front_id.animate({width: "0%"}, 500).fadeOut(500);
+			first_card_front_id.animate({width: "0%"}, 500).fadeOut(500);
 			$('.fighter').animate({left: "+=72px"});
 			console.log('First clicked id: ',first_card_back_id)
 			second_card_clicked = false;
@@ -46,6 +44,7 @@ function click_card(card_back_id) {
 				var pos1 = $('.fighter').position();
 				console.log(pos1);
 				$(this).css(pos1).css({"left": "50px", "top": "45px"});
+				console.log(score = score += 1);
 			});
 		} else {
 			console.log("Sorry, not a match.");
