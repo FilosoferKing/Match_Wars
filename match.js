@@ -30,20 +30,22 @@ function click_card(card_back_id) {
 		console.log("First card clicked: ", second_card_clicked);
 		second_card_front_src = card_front_id.attr('src');
 		second_card_back_id = card_back_id;
+
+		
+
+		
 	} else {
 		if (first_card_front_src == second_card_front_src) {
 			console.log('You have a match');
-			/*card_front_id.fadeOut(1000); //Redundant code
-			console.log('Second clicked id: ', card_front_id);// Redundant code*/
 			card_front_id.fadeOut(1000);
 			first_card_front_id.fadeOut(1000);
 			$('.fighter').animate({left: "+=72px"});
 			console.log('First clicked id: ',first_card_back_id)
 			second_card_clicked = false;
 			$('#red_laser').animate({left: "+=790px"}, 500, function() {
-				var pos = $('.fighter').position();
-				console.log(pos);
-				$(this).css(pos).css({"left": "50px", "top": "45px"});
+				var pos1 = $('.fighter').position();
+				console.log(pos1);
+				$(this).css(pos1).css({"left": "50px", "top": "45px"});
 			});
 		} else {
 			console.log("Sorry, not a match.");
@@ -53,7 +55,10 @@ function click_card(card_back_id) {
 			console.log('First back: ', first_card_back_id)
 			second_card_back_id.toggle();
 			console.log('Second back: ', second_card_back_id);
+			var pos1 = $('.fighter').position();
 			$('#green_laser').animate({width: "+=790px"}, 500, function() {
+				var pos2 = $('#death_star').position();
+				console.log(pos2);
 				$(this).css("width", "60px");
 			});
 		}
