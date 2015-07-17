@@ -67,27 +67,27 @@ function click_card(card_back_id) {
 			console.log("Sorry, not a match.");
 			second_card_clicked = false;
 			alert('Sorry, not a match.');
-			//first_card_back_id.toggle();
+			
 			console.log('First back: ', first_card_back_id)
-			//second_card_back_id.toggle();
+			
 			console.log('Second back: ', second_card_back_id);
 			var pos1 = $('.fighter').position();
-			$('#green_laser_1').animate({width: "+=50px"}, 550, function() {
-				$(this).delay(3000).css("width", "0");
-			});
-			$('#green_laser_2').animate({width: "+=36px"}, 600, function() {
-				$(this).delay(3000).css("width", "0");
-			});
-			$('#green_laser_3').animate({width: "+=54px"}, 650, function() {
-				$(this).delay(3000).css("width", "0");
-			});
-			$('#green_laser').delay(500).animate({width: "+=790px"}, 500, function() {
+			$('#green_laser_1').animate({width: "+=50px"}, 100, function() {
+				
+				$('#green_laser_2').animate({width: "+=36px"}, 100, function() {
+					
+					$('#green_laser_3').animate({width: "+=54px"}, 100, function() {
+					
+						$('#green_laser').animate({width: "+=790px"}, 100, function() {
 				var pos2 = $('#death_star').position();
 				console.log(pos2);
-				$(this).css("width", "0");
+				$('#green_laser, #green_laser_1, #green_laser_2, #green_laser_3').css("width", "0");
 			});
-
-
+			});
+			});
+			});
+			
+		
 			//Card Flip Back Over
 			second_card_back_id.css({
 	       	    "transform": "rotateX(0)",
