@@ -2,6 +2,7 @@ var second_card_clicked = false;
 var first_card_front_src = null;
 var first_card_back_id = null;
 var first_card_front_id = null;
+var laser = false;
 function click_card(card_back_id) {
 	test = card_back_id;
 
@@ -36,9 +37,14 @@ function click_card(card_back_id) {
 			console.log('Second clicked id: ', card_front_id);// Redundant code*/
 			card_front_id.fadeOut(1000);
 			first_card_front_id.fadeOut(1000);
-			$('#xwing').animate({left: "+=35.5px"});
+			$('.fighter').animate({left: "+=72px"});
 			console.log('First clicked id: ',first_card_back_id)
 			second_card_clicked = false;
+			$('#red_laser').animate({left: "+=790px"}, 500, function() {
+				var pos = $('.fighter').position();
+				console.log(pos);
+				$(this).css(pos).css({"left": "50px", "top": "45px"});
+			});
 		} else {
 			console.log("Sorry, not a match.");
 			second_card_clicked = false;
@@ -46,7 +52,10 @@ function click_card(card_back_id) {
 			first_card_back_id.toggle();
 			console.log('First back: ', first_card_back_id)
 			second_card_back_id.toggle();
-			console.log('Second back: ', second_card_back_id)
+			console.log('Second back: ', second_card_back_id);
+			$('#green_laser').animate({width: "+=790px"}, 500, function() {
+				$(this).css("width", "60px");
+			});
 		}
 	}
 	
