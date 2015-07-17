@@ -6,7 +6,12 @@ body {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #fff;
 }
+
+
+
 /********************************
 HEADER
 ********************************/
@@ -14,7 +19,6 @@ header {
 	position: relative;
 	width: 1200px;
 	height: 125px;
-	border: 1px solid;
 	margin: 0 auto;
 }
 
@@ -55,13 +59,55 @@ header img {
 	z-index: -1;
 }
 
-#green_laser {
+#green_laser{
 	position: absolute;
-	height: 20px;
-	width: 60px;
-	right: 25px;
+    background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
+    width: 0px;
+    height: 5px;
+    border-radius: 10px;
+    opacity: .9;
+    box-shadow: 0px 0px 10px limegreen;
+    right: 145px;
 	top: 45px;
-	z-index: -1;
+}
+
+#green_laser_1 {
+	position: absolute;
+    background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
+    width: 0; /*50px*/
+    height: 5px;
+    border-radius: 10px;
+    opacity: .9;
+    box-shadow: 0px 0px 10px limegreen;
+    right: 103px;
+	top: 34px;
+	transform: rotate(-30deg);
+}
+
+#green_laser_2 {
+	position: absolute;
+    background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
+    width: 0;/*36*/
+    height: 5px;
+    border-radius: 10px;
+    opacity: .9;
+    box-shadow: 0px 0px 10px limegreen;
+    right: 112px;
+	top: 48px;
+	transform: rotate(8deg);
+}
+
+#green_laser_3 {
+	position: absolute;
+    background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
+    width: 0;/*54px*/
+    height: 5px;
+    border-radius: 10px;
+    opacity: .9;
+    box-shadow: 0px 0px 10px limegreen;
+    right: 93px;
+	top: 40px;
+	transform: rotate(-10deg);
 }
 
 /********************************
@@ -85,6 +131,11 @@ GAME BODY
 	width: 1000px;
 	height: 775px;
 	margin: 0;	
+}
+
+.cards .card_front {
+	transform: rotateX(180deg);
+	backface-visibility: hidden;
 }
 
 .card_container {
