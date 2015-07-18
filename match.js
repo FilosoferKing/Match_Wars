@@ -7,6 +7,11 @@ var time_per_10px = 5;
 var num = null;
 var score = 0;
 var tries = 0;
+var static_time = new Date();
+var current_time;
+var time_differnce;
+var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
+
 function click_card(card_back_id) {
 	test = card_back_id;
 
@@ -34,6 +39,16 @@ function click_card(card_back_id) {
         "transform-style": "preserve-3d",
         "transition": "transform .20s linear"
       });
+
+	//Interval Timer on Card Click
+    var start_timer = setInterval(function(){
+	console.log("Timer Check");
+	current_time = new Date();
+	time_difference = Math.floor((current_time - static_time)/1000);
+	console.log(time_difference);
+	}, 1000);
+	
+    
 	
 
 	if (!second_card_clicked) {
@@ -121,3 +136,24 @@ $(document).ready(function() {
 	console.log($('#death_star').position());
 	console.log($('#death_star').offset());
 });
+
+function reset() {
+var source_array = card_array.slice();
+source_array = source_array.concat(source_array);
+
+while (source_array.length) {
+	var random_card_index = Math.floor(Math.random() * source_array.length);
+	var card_image = source_array[random_card_index];
+	var front_image = $('<img>').addClass("card_front").attr('src','img/'+card_image);
+	var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src','img/dscard.png');
+	var card_container = $('<div>').addClass('card_container');
+	card_container.append(front_image, back_image);
+	$('.cards').append(card_container);
+	source_array.splice(random_card_index, 1);
+}
+
+}
+
+
+
+	
