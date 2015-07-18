@@ -10,7 +10,36 @@ var tries = 0;
 var static_time = new Date();
 var current_time;
 var time_differnce;
+var card_check;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
+
+function reset() {
+var source_array = card_array.slice();
+source_array = source_array.concat(source_array);
+
+card_check = ($('.card_container').length == 0);
+console.log(card_check);
+
+var card_container = $('<div>').addClass('card_container');
+console.log($('.card_back').length)
+if (card_container.length <= 1) {
+	
+	while (source_array.length ) {
+	var random_card_index = Math.floor(Math.random() * source_array.length);
+	var card_image = source_array[random_card_index];
+	var front_image = $('<img>').addClass("card_front").attr('src','img/'+card_image);
+	var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src','img/dscard.png');
+	card_container = $('<div>').addClass('card_container');
+	card_container.append(front_image, back_image);
+	$('.cards').append(card_container);
+	source_array.splice(random_card_index, 1);
+}
+
+} else {
+	event.preventDefault();
+}
+
+} //End function reset()
 
 function click_card(card_back_id) {
 	test = card_back_id;
@@ -41,12 +70,12 @@ function click_card(card_back_id) {
       });
 
 	//Interval Timer on Card Click
-    var start_timer = setInterval(function(){
+    /*var start_timer = setInterval(function(){
 	console.log("Timer Check");
 	current_time = new Date();
 	time_difference = Math.floor((current_time - static_time)/1000);
 	console.log(time_difference);
-	}, 1000);
+	}, 1000);*/
 	
     
 	
@@ -64,7 +93,7 @@ function click_card(card_back_id) {
 			console.log('You have a match');
 			card_front_id.animate({width: "0%"}, 500).fadeOut(500);
 			first_card_front_id.animate({width: "0%"}, 500).fadeOut(500);
-			$('.fighter').animate({left: "+=72px"});
+			$('.fighter').animate({left: "+=72px"}, 1000);
 			console.log('First clicked id: ',first_card_back_id)
 			second_card_clicked = false;
 			var red_laser_x = $('#red_laser').offset().left;
@@ -93,7 +122,7 @@ function click_card(card_back_id) {
 					
 					$('#green_laser_3').animate({width: "+=54px"}, 100, function() {
 					
-						$('#green_laser').animate({width: "+=790px"}, 100, function() {
+						$('#green_laser').animate({width: "+=790px"}, 400, function() {
 				var pos2 = $('#death_star').position();
 				console.log(pos2);
 				$('#green_laser, #green_laser_1, #green_laser_2, #green_laser_3').css("width", "0");
@@ -137,22 +166,9 @@ $(document).ready(function() {
 	console.log($('#death_star').offset());
 });
 
-function reset() {
-var source_array = card_array.slice();
-source_array = source_array.concat(source_array);
 
-while (source_array.length) {
-	var random_card_index = Math.floor(Math.random() * source_array.length);
-	var card_image = source_array[random_card_index];
-	var front_image = $('<img>').addClass("card_front").attr('src','img/'+card_image);
-	var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src','img/dscard.png');
-	var card_container = $('<div>').addClass('card_container');
-	card_container.append(front_image, back_image);
-	$('.cards').append(card_container);
-	source_array.splice(random_card_index, 1);
-}
 
-}
+
 
 
 
