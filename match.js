@@ -6,20 +6,21 @@ var death_star_x = null;
 var time_per_10px = 5;
 var num = null;
 var score = 0;
+var score_post;
 var tries = 0;
 var static_time = new Date();
 var current_time;
 var time_differnce;
-var card_check = false;
+var card_check = true;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
 
 function reset() {
 var source_array = card_array.slice();
 source_array = source_array.concat(source_array);
 
-console.log(card_check);
+console.log('Game board reset: ', card_check);
 
-if (card_check) {
+if (!card_check) {
 
 	while (source_array.length ) {
 	var random_card_index = Math.floor(Math.random() * source_array.length);
@@ -77,15 +78,13 @@ function click_card(card_back_id) {
         "transition": "transform .20s linear"
       });
 
-	//Interval Timer on Card Click
+    //Interval Timer on Card Click
     /*var start_timer = setInterval(function(){
 	console.log("Timer Check");
 	current_time = new Date();
 	time_difference = Math.floor((current_time - static_time)/1000);
 	console.log(time_difference);
 	}, 1000);*/
-	
-    card_div = card_back_id.parent().parent().find(this);
 	
 
 	if (!second_card_clicked) {
@@ -113,8 +112,10 @@ function click_card(card_back_id) {
 				var pos1 = $('.fighter').position();
 				console.log(pos1);
 				$(this).css(pos1).css({"left": "50px", "top": "45px"});
-				console.log(score = score += 1);
 			});
+				score_post = (score = score += 1);
+				console.log('Score: ', score_post);
+				$('#score').html("Score: ").append(score_post);
 		} else {
 			console.log("Sorry, not a match.");
 			second_card_clicked = false;
