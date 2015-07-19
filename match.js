@@ -11,29 +11,12 @@ var tries = 0;
 var static_time = new Date();
 var current_time;
 var time_differnce;
-var card_check = true;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
 
 function reset() {
-var source_array = card_array.slice();
-source_array = source_array.concat(source_array);
+	var source_array = card_array.slice();
+	source_array = source_array.concat(source_array);
 
-console.log('Game board reset: ', card_check);
-
-if (!card_check) {
-
-	while (source_array.length ) {
-	var random_card_index = Math.floor(Math.random() * source_array.length);
-	var card_image = source_array[random_card_index];
-	var front_image = $('<img>').addClass("card_front").attr('src','img/'+card_image);
-	var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src','img/dscard.png');
-	card_container = $('<div>').addClass('card_container');
-	card_container.append(front_image, back_image);
-	$('.cards').append(card_container);
-	source_array.splice(random_card_index, 1);
-} 
-
-} else {
 	$('.card_container').remove(); //remove div conatainers from DOM
 	while (source_array.length ) {
 	var random_card_index = Math.floor(Math.random() * source_array.length);
@@ -44,9 +27,12 @@ if (!card_check) {
 	card_container.append(front_image, back_image);
 	$('.cards').append(card_container);
 	source_array.splice(random_card_index, 1);
-} 
-
 }
+
+	score = 0;
+	$('#score').html("Score: ").append(score);
+
+	console.log('Game board reset');
 
 } //End function reset()
 
