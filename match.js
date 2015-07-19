@@ -9,8 +9,9 @@ var score = 0;
 var score_post;
 var tries = 0;
 var static_time = new Date();
-var current_time;
-var time_differnce;
+var current_time = null;
+var time_difference = null;
+var start_timer = null;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
 
 function reset() {
@@ -28,9 +29,16 @@ function reset() {
 	$('.cards').append(card_container);
 	source_array.splice(random_card_index, 1);
 }
-
+	//Display Score
 	score = 0;
 	$('#score').html("Score: ").append(score);
+
+
+	clearInterval(start_timer);
+	start_timer = 0;
+	console.log('Timer reset: ', start_timer)
+	static_time = new Date();
+	
 
 	console.log('Game board reset');
 
@@ -65,12 +73,15 @@ function click_card(card_back_id) {
       });
 
     //Interval Timer on Card Click
-    /*var start_timer = setInterval(function(){
+    if (start_timer == 0) {
+    start_timer = setInterval(function(){
 	console.log("Timer Check");
 	current_time = new Date();
 	time_difference = Math.floor((current_time - static_time)/1000);
 	console.log(time_difference);
-	}, 1000);*/
+	}, 1000);
+	$('#timer').html("Time Played: ").append(time_difference);
+	}
 	
 
 	if (!second_card_clicked) {
