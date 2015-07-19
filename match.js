@@ -12,14 +12,15 @@ var static_time = new Date();
 var current_time = null;
 var time_difference = null;
 var start_timer = null;
+var accuracy = null;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
 
 function reset() {
 	var source_array = card_array.slice();
 	source_array = source_array.concat(source_array);
 
-	$('.card_container').remove(); //remove div conatainers from DOM
-	while (source_array.length ) {
+	$('.card_container').remove(); //remove div conatainers and cards from DOM
+	while (source_array.length ) { //Load DOM with div containers and cards
 	var random_card_index = Math.floor(Math.random() * source_array.length);
 	var card_image = source_array[random_card_index];
 	var front_image = $('<img>').addClass("card_front").attr('src','img/'+card_image);
@@ -38,6 +39,7 @@ function reset() {
 	start_timer = 0;
 	console.log('Timer reset: ', start_timer)
 	static_time = new Date();
+	$('#timer').html("Time Played: 0");
 	
 
 	console.log('Game board reset');
@@ -78,12 +80,11 @@ function click_card(card_back_id) {
 	console.log("Timer Check");
 	current_time = new Date();
 	time_difference = Math.floor((current_time - static_time)/1000);
+	$('#timer').html("Time Played: ").append(time_difference);
 	console.log(time_difference);
 	}, 1000);
-	$('#timer').html("Time Played: ").append(time_difference);
 	}
 	
-
 	if (!second_card_clicked) {
 		first_card_front_id = card_front_id;
 		second_card_clicked = true;
@@ -91,7 +92,6 @@ function click_card(card_back_id) {
 		second_card_front_src = card_front_id.attr('src');
 		second_card_back_id = card_back_id;
 		console.log('Tries: ', tries = tries + 1)
-
 	} else {
 		if (first_card_front_src == second_card_front_src) {
 			console.log('You have a match');
@@ -113,6 +113,15 @@ function click_card(card_back_id) {
 				score_post = (score = score += 1);
 				console.log('Score: ', score_post);
 				$('#score').html("Score: ").append(score_post);
+
+				if (score_post == card_array.length) {
+					clearInterval(start_timer);
+					console.log('You won the game!');
+
+					accuracy = Math.floor((score_post/tries) * 100);
+					$('#accuracy').html("Accuracy: ").append(accuracy, "%")
+					console.log('Accuracy: ', (Math.floor((score_post/tries) * 100)));
+				}
 		} else {
 			console.log("Sorry, not a match.");
 			second_card_clicked = false;
