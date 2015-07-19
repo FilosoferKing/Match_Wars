@@ -41,9 +41,9 @@ function reset() {
 	static_time = new Date();
 	$('#timer').html("Time Played: 0");
 
-	$('#death_star').append().attr('src','img/deathstar1.png').show();
-	$('#xwing_final').hide().css({"right": "35px", "top": "15px", "width": "50px", "height": "50px"});
-	$('.fighter').css({"top": "0", "left": "280px"}).show();
+	$('#death_star').stop().append().attr('src','img/deathstar1.png').css({"width": "120px", "height": "120px"}).show();
+	$('#xwing_final').stop().hide().css({"right": "35px", "top": "15px", "width": "50px", "height": "50px"});
+	$('.fighter').stop().css({"top": "0", "left": "280px"}).show();
 	
 
 	console.log('Game board reset');
@@ -118,7 +118,7 @@ function click_card(card_back_id) {
 				console.log('Score: ', score_post);
 				$('#score').html("Score: ").append(score_post);
 
-				if (score_post == card_array.length) { //Game won actions
+				if (score_post == score_post/*card_array.length*/) { //Game won actions
 					clearInterval(start_timer);
 					console.log('You won the game!');
 
@@ -126,7 +126,7 @@ function click_card(card_back_id) {
 					$('#accuracy').html("Accuracy: ").append(accuracy, "%")
 					console.log('Accuracy: ', (Math.floor((score_post/tries) * 100)));
 
-					$('#death_star').append().attr('src','img/explode.png').fadeOut(4000);
+					$('#death_star').append().attr('src','img/explode.png').animate({width: "+=20px", height: "+=20px"});
 					$('#xwing_final').show().animate({right: "+=1200px", top: "+=1080px", width: "+=1400px", height: "+=1400px"}, 8000);
 					$('.fighter').hide();
 				}
