@@ -14,6 +14,8 @@ var time_difference = null;
 var start_timer = null;
 var accuracy = null;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
+var saber_fx = ["saber1.wav", "saber2.wav", "saber3.wav", "saber4.wav", "saber5.wav", "saber6.wav", "saber7.wav", "saber8.wav", "saber9.wav", "saber10.wav", "saber11.wav", "saber12.wav", "saber13.wav", "saber14.wav", "saber15.wav", "saber16.wav", "saber17.wav", "saber18.wav"];
+var random_fx = null;
 
 function reset() {
 	var source_array = card_array.slice();
@@ -58,9 +60,21 @@ function click_card(card_back_id) {
 	
 	first_card_back_id = card_back_id;
 
-	
 	card_front_id = card_back_id.parent().find('.card_front');
 	var card_front_src = card_front_id.attr('src');
+
+	if (card_front_src == "img/vadercard.png") {
+		console.log('THIS IS VADER!');
+		$('body').append('<embed id="embed_player" src="img/darthgive.wav" autostart="true" hidden="true"></embed>');
+	}
+
+	//Light Saber sound fx
+	if (card_back_id) {
+	random_fx = Math.floor(Math.random() * saber_fx.length);
+	var fx = saber_fx[random_fx]
+	console.log('RANDOM EFFETCS ', fx)
+	$('body').append('<embed id="embed_player" src="img/'+ fx +'" autostart="true" hidden="true"></embed>');
+	}
 
 
 	first_card_front_src = card_front_id.attr('src');
