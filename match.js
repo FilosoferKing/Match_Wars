@@ -40,6 +40,10 @@ function reset() {
 	console.log('Timer reset: ', start_timer)
 	static_time = new Date();
 	$('#timer').html("Time Played: 0");
+
+	$('#death_star').append().attr('src','img/deathstar1.png').show();
+	$('#xwing_final').hide().css({"right": "35px", "top": "15px", "width": "50px", "height": "50px"});
+	$('.fighter').css({"top": "0", "left": "280px"}).show();
 	
 
 	console.log('Game board reset');
@@ -84,7 +88,7 @@ function click_card(card_back_id) {
 	console.log(time_difference);
 	}, 1000);
 	}
-	
+
 	if (!second_card_clicked) {
 		first_card_front_id = card_front_id;
 		second_card_clicked = true;
@@ -114,13 +118,17 @@ function click_card(card_back_id) {
 				console.log('Score: ', score_post);
 				$('#score').html("Score: ").append(score_post);
 
-				if (score_post == card_array.length) {
+				if (score_post == card_array.length) { //Game won actions
 					clearInterval(start_timer);
 					console.log('You won the game!');
 
 					accuracy = Math.floor((score_post/tries) * 100);
 					$('#accuracy').html("Accuracy: ").append(accuracy, "%")
 					console.log('Accuracy: ', (Math.floor((score_post/tries) * 100)));
+
+					$('#death_star').append().attr('src','img/explode.png').fadeOut(4000);
+					$('#xwing_final').show().animate({right: "+=1200px", top: "+=1080px", width: "+=1400px", height: "+=1400px"}, 8000);
+					$('.fighter').hide();
 				}
 		} else {
 			console.log("Sorry, not a match.");
