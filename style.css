@@ -7,7 +7,8 @@ body {
 	background-position: 50% 50%;
 	background-size: cover;
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: #fff;
+	font-size: 40px;
+	color: #fff020;
 }
 
 #xwing_final {
@@ -127,10 +128,75 @@ GAME BODY
 }
 
 .info {
+	position: relative;
 	width: 200px;
-	height: 775px;
+	height: 692px;
 	float: left;
-	margin: 0;
+	margin-top: 8px;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, .2);
+	box-shadow: 0px 0px 10px #fff inset;
+}
+
+#mood {
+	width: 180px;
+	height: 100px;
+
+
+}
+
+#mood img {
+	position: absolute;
+	width: 60%;
+	height: auto;
+	bottom: 25px;
+	left: 37px;
+}
+
+p {
+	text-align: center;
+	margin: 35px auto 60px auto;
+	font-weight: 500;
+}
+
+p:nth-child(2), p:nth-child(4), p:nth-child(6) {
+	margin-top: -35px;
+	text-align: center;
+	text-decoration: none;
+}
+
+p:nth-child(1) {
+	margin-top: -15px;
+}
+
+p:nth-child(6) {
+	margin-bottom: -25px;
+}
+
+#the_score {
+	background: transparent url('img/jedi.png') no-repeat 50% 50%;
+	background-size: 135px 100%;
+}
+
+#the_timer {
+	background: transparent url('img/imperial.png') no-repeat 50% 50%;
+	background-size: 135px 100%;
+}
+
+#the_accuracy {
+	background: transparent url('img/rebel.png') no-repeat 50% 50%;
+	background-size: 135px 100%;
+}
+
+#reset {
+	position: relative;
+	margin: 20px auto 0 auto;
+	width: 180px;
+	height: 100px;
+}
+
+#reset img {
+	width: 100%;
 }
 
 .cards {
@@ -156,4 +222,10 @@ GAME BODY
 
 .card_container img {
 	position: absolute;
+}
+
+#end_credits {
+	position: relative;
+	bottom: -100px;
+	margin: 0 auto;
 }

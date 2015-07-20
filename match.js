@@ -21,6 +21,8 @@ function reset() {
 	var source_array = card_array.slice();
 	source_array = source_array.concat(source_array);
 
+	$('.cards img').remove();
+
 	$('.card_container').remove(); //remove div conatainers and cards from DOM
 	while (source_array.length ) { //Load DOM with div containers and cards
 	var random_card_index = Math.floor(Math.random() * source_array.length);
@@ -32,22 +34,23 @@ function reset() {
 	$('.cards').append(card_container);
 	source_array.splice(random_card_index, 1);
 }
-	//Display Score
+	//Score Reset
 	score = 0;
-	$('#score').html("Score: ").append(score);
-
-
+	$('#score').html("").append(score);
+	//Timer Reset
 	clearInterval(start_timer);
 	start_timer = 0;
 	console.log('Timer reset: ', start_timer)
 	static_time = new Date();
-	$('#timer').html("Time Played: 0");
+	$('#timer_text').html("Time");
+	$('timer').html("0");
+	//Accruacy Reset
+	$('#accuracy').html("0");
 
 	$('#death_star').stop().append().attr('src','img/deathstar1.png').css({"width": "120px", "height": "120px"}).show();
 	$('#xwing_final').stop().hide().css({"right": "35px", "top": "15px", "width": "50px", "height": "50px"});
 	$('.fighter').stop().css({"top": "0", "left": "280px"}).show();
 	
-
 	console.log('Game board reset');
 
 } //End function reset()
@@ -69,9 +72,10 @@ function click_card(card_back_id) {
 		$('body').append('<embed id="embed_player" src="img/darthgive.wav" autostart="true" hidden="true"></embed>');
 	}
 	if (card_front_src == "img/yodacard.png") {
-		console.log('THIS IS VADER!');
+		console.log('THIS IS YODA!');
 		$('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
 	}
+
 
 	//Light Saber Sound Fx
 	if (card_back_id) {
@@ -103,7 +107,7 @@ function click_card(card_back_id) {
 	console.log("Timer Check");
 	current_time = new Date();
 	time_difference = Math.floor((current_time - static_time)/1000);
-	$('#timer').html("Time Played: ").append(time_difference);
+	$('#timer').html("").append(time_difference);
 	console.log(time_difference);
 	}, 1000);
 	}
@@ -135,19 +139,22 @@ function click_card(card_back_id) {
 			});
 				score_post = (score = score += 1);
 				console.log('Score: ', score_post);
-				$('#score').html("Score: ").append(score_post);
+				$('#score').html("").append(score_post);
 
 				if (score_post == card_array.length) { //Game won actions
 					clearInterval(start_timer);
 					console.log('You won the game!');
 
 					accuracy = Math.floor((score_post/tries) * 100);
-					$('#accuracy').html("Accuracy: ").append(accuracy, "%")
+					$('#accuracy').html("").append(accuracy, "%")
 					console.log('Accuracy: ', (Math.floor((score_post/tries) * 100)));
 
 					$('#death_star').append().attr('src','img/explode.png').animate({width: "+=20px", height: "+=20px"});
 					$('#xwing_final').show().animate({right: "+=1200px", top: "+=1080px", width: "+=1400px", height: "+=1400px"}, 8000);
 					$('.fighter').hide();
+
+					$('.cards').append('<img id="end_credits" src="img/endcredits.png">');
+					$('#end_credits').animate({bottom: "+=900px"}, 10000);
 				}
 		} else {
 			console.log("Sorry, not a match.");
@@ -208,6 +215,11 @@ $(document).ready(function() {
 	console.log($('#death_star').position());
 	console.log($('#death_star').offset());
 });
+
+function duel_music() {
+console.log('DUEL MUSIC!');
+$('body').append('<embed id="embed_player" src="img/duel.mp3" autostart="true" hidden="true"></embed>');
+}
 
 
 

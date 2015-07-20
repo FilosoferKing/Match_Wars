@@ -27,18 +27,24 @@
 <div class="game">
 <div class="info">
 	<div id="reset" onclick="reset()">
-		<p>Reset<p>
+		<img src="img/battleagain.png" alt="Battle Again">
 	</div>
-	<div>
-		<p>Stats:</p>
+	<div id="stats">
+		<div id="the_score">
+			<p id="score_text">Score</p>
+			<p id="score">0</p>
+		</div>
+		<div id="the_timer">
+			<p id="timer_text">Time</p>
+			<p id="timer">0</p>
+		</div>
+		<div id="the_accuracy">
+			<p id="accuracy_text">Accuracy</p>
+			<p id="accuracy">0</p>
+		</div>
 	</div>
-	<div>
-		<p id="score">Score: 0</p>
-		<p id="timer">Time Played: 0</p>
-		<p id="accuracy">Accuracy: 0</p>
-	</div>
-	<div>
-		<p>Game Info Area</p>
+	<div id="mood" onclick="duel_music()">
+		<img src="img/starmood.png" alt="Set the Mood">
 	</div>
 </div><!--End of info-->
 <div class="cards"></div><!--End of cards-->
