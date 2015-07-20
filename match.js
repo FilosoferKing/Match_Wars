@@ -43,7 +43,7 @@ function reset() {
 	console.log('Timer reset: ', start_timer)
 	static_time = new Date();
 	$('#timer_text').html("Time");
-	$('timer').html("0");
+	$('#timer').html("0");
 	//Accruacy Reset
 	$('#accuracy').html("0");
 
