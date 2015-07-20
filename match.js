@@ -63,12 +63,17 @@ function click_card(card_back_id) {
 	card_front_id = card_back_id.parent().find('.card_front');
 	var card_front_src = card_front_id.attr('src');
 
+	//Darth & Yoda Sound Fx
 	if (card_front_src == "img/vadercard.png") {
 		console.log('THIS IS VADER!');
 		$('body').append('<embed id="embed_player" src="img/darthgive.wav" autostart="true" hidden="true"></embed>');
 	}
+	if (card_front_src == "img/yodacard.png") {
+		console.log('THIS IS VADER!');
+		$('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
+	}
 
-	//Light Saber sound fx
+	//Light Saber Sound Fx
 	if (card_back_id) {
 	random_fx = Math.floor(Math.random() * saber_fx.length);
 	var fx = saber_fx[random_fx]
@@ -132,7 +137,7 @@ function click_card(card_back_id) {
 				console.log('Score: ', score_post);
 				$('#score').html("Score: ").append(score_post);
 
-				if (score_post == score_post/*card_array.length*/) { //Game won actions
+				if (score_post == card_array.length) { //Game won actions
 					clearInterval(start_timer);
 					console.log('You won the game!');
 
@@ -147,7 +152,7 @@ function click_card(card_back_id) {
 		} else {
 			console.log("Sorry, not a match.");
 			second_card_clicked = false;
-			alert('Sorry, not a match.');
+			
 			
 			console.log('First back: ', first_card_back_id)
 			
@@ -168,7 +173,7 @@ function click_card(card_back_id) {
 			});
 			});
 			
-		
+			setTimeout(function() {
 			//Card Flip Back Over
 			second_card_back_id.css({
 	       	    "transform": "rotateX(0)",
@@ -190,6 +195,7 @@ function click_card(card_back_id) {
 	        	"transform-style": "preserve-3d",
 	        	"transition": "transform .20s linear"
       		});
+    		}, 300);
 		}
 	}
 
