@@ -6,107 +6,48 @@
 			<link rel="stylesheet" type="text/css" href="style.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script src="match.js"></script>
+
+			<!--FONT-->
+			<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic,700,300' rel='stylesheet' type='text/css'>
 	</head>
-<body>
+<body onload="reset()">
 <header>
 	<img src="img/matchwars.png" alt="Game Logo">
-	<p>Reset Game</p>
-	<ul>
-		<li></li>
-		<li></li>
-	<ul>
+	<div class="fighter">
+		<img id="xwing" src="img/xwing.png" alt="X-Wing">
+		<img id="red_laser" src="img/redlaser.png" alt="Laser">
+	</div>
+	<img id="xwing_final" src="img/bigxwing.png" alt="Final X-Wing">
+	<img id="death_star" src="img/deathstar1.png" alt="X-Wing">
+	<div id="green_laser"></div>
+	<div id="green_laser_1"></div>
+	<div id="green_laser_2"></div>
+	<div id="green_laser_3"></div>
 </header>
 <div class="game">
 <div class="info">
-	<div>
-		<p>Stats:</p>
+	<div id="reset" onclick="reset()">
+		<img src="img/battleagain.png" alt="Battle Again">
 	</div>
-	<div>
-		<p>Time Played:</p>
-		<p>Number of tries:</p>
-		<p>Accuracy:</p>
+	<div id="stats">
+		<div id="the_score">
+			<p id="score_text">Score</p>
+			<p id="score">0</p>
+		</div>
+		<div id="the_timer">
+			<p id="timer_text">Time</p>
+			<p id="timer">0</p>
+		</div>
+		<div id="the_accuracy">
+			<p id="accuracy_text">Accuracy</p>
+			<p id="accuracy">0</p>
+		</div>
 	</div>
-	<div>
-		<p>Game Info Area</p>
+	<div id="mood" onclick="duel_music()">
+		<img src="img/starmood.png" alt="Set the Mood">
 	</div>
 </div><!--End of info-->
-<div class="cards">
-	<div class="card_container">
-		<img class="card_front" src="img/yodacard.png" alt="Yoda">
-		<img class="card_back" onclick="click_card(this)" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img class="card_front" src="img/chewcard.png" alt="Chewbacca">
-		<img class="card_back" onclick="click_card(this)" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img class="card_front" src="img/yodacard.png" alt="Yoda">
-		<img class="card_back" onclick="click_card(this)" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front_4" src="" alt="">
-		<img id="card_back_4" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	<div class="card_container">
-		<img id="card_front" src="" alt="">
-		<img id="card_back" onclick="click_card()" src="img/dscard.png" alt="Death Star Card">
-	</div>
-	
-	
-
-</div><!--End of cards-->
+<div class="cards"></div><!--End of cards-->
 </div>
 </body>
 </html>
