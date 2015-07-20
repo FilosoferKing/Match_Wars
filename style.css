@@ -213,7 +213,6 @@ p:nth-child(6) {
 
 .card_container {
 	display: inline-block;
-	border: 1px solid;
 	width: 150px;
 	height: 220px;
 	margin: 5px;
