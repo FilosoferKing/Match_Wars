@@ -2,73 +2,73 @@
 PAGE: index.html - Memory Match Game
 **********************************************************************/
 body {
-	background: url(img/deepspaceedit.jpg);
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: cover;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 40px;
-	color: #fff020;
+    background: url(img/deepspaceedit.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 40px;
+    color: #fff020;
 }
 
 #xwing_final {
-	position: absolute;
-	z-index: 100;
-	width: 50px;
-	height: 50px;
-	right: 35px;
-	top: 15px;
+    position: absolute;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    right: 35px;
+    top: 15px;
 }
 
 /********************************
 HEADER
 ********************************/
 header {
-	position: relative;
-	width: 1200px;
-	height: 125px;
-	margin: 0 auto;
+    position: relative;
+    width: 1200px;
+    height: 125px;
+    margin: 0 auto;
 }
 
 header img {
-	position: absolute;
-	width: 250px;
-	height: 115px;
+    position: absolute;
+    width: 250px;
+    height: 115px;
 }
 
 #death_star {
-	position: absolute;
-	top: 0;
-	right: 20px;
-	width: 120px;
-	height: 120px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 120px;
+    height: 120px;
 }
 
 .fighter {
-	position: relative;
-	top: 0;
-	left: 280px;
-	width:190px;
-	height: 120px;
+    position: relative;
+    top: 0;
+    left: 280px;
+    width: 190px;
+    height: 120px;
 }
 
 #xwing {
-	position: absolute;
-	width:190px;
-	height: 120px;
+    position: absolute;
+    width: 190px;
+    height: 120px;
 }
 
 #red_laser {
-	position: absolute;
-	height: 20px;
-	width: 60px;
-	left: 50px;
-	top: 45px;
-	z-index: -1;
+    position: absolute;
+    height: 20px;
+    width: 60px;
+    left: 50px;
+    top: 45px;
+    z-index: -1;
 }
 
-#green_laser{
-	position: absolute;
+#green_laser {
+    position: absolute;
     background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
     width: 0px;
     height: 5px;
@@ -76,11 +76,11 @@ header img {
     opacity: .9;
     box-shadow: 0px 0px 10px limegreen;
     right: 145px;
-	top: 45px;
+    top: 45px;
 }
 
 #green_laser_1 {
-	position: absolute;
+    position: absolute;
     background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
     width: 0; /*50px*/
     height: 5px;
@@ -88,143 +88,162 @@ header img {
     opacity: .9;
     box-shadow: 0px 0px 10px limegreen;
     right: 103px;
-	top: 34px;
-	transform: rotate(-30deg);
+    top: 34px;
+    transform: rotate(-30deg);
 }
 
 #green_laser_2 {
-	position: absolute;
+    position: absolute;
     background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
-    width: 0;/*36*/
+    width: 0; /*36*/
     height: 5px;
     border-radius: 10px;
     opacity: .9;
     box-shadow: 0px 0px 10px limegreen;
     right: 112px;
-	top: 48px;
-	transform: rotate(8deg);
+    top: 48px;
+    transform: rotate(8deg);
 }
 
 #green_laser_3 {
-	position: absolute;
+    position: absolute;
     background: linear-gradient(limegreen, rgb(218, 237, 218), limegreen);
-    width: 0;/*54px*/
+    width: 0; /*54px*/
     height: 5px;
     border-radius: 10px;
     opacity: .9;
     box-shadow: 0px 0px 10px limegreen;
     right: 93px;
-	top: 40px;
-	transform: rotate(-10deg);
+    top: 40px;
+    transform: rotate(-10deg);
 }
 
 /********************************
 GAME BODY
 ********************************/
 .game {
-	margin: 0 auto;
-	width: 1200px;
-	height: 775px;
+    margin: 0 auto;
+    width: 1200px;
+    height: 775px;
 }
 
 .info {
-	position: relative;
-	width: 200px;
-	height: 692px;
-	float: left;
-	margin-top: 8px;
-	border-radius: 5px;
-	background: rgba(0, 0, 0, .2);
-	box-shadow: 0px 0px 10px #fff inset;
+    position: relative;
+    width: 200px;
+    height: 692px;
+    float: left;
+    margin-top: 8px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 10px #fff inset;
 }
 
 #mood {
-	width: 180px;
-	height: 100px;
-
-
+    width: 180px;
+    height: 100px;
+    cursor: pointer;
+    -webkit-animation: flash .5s linear infinite;
+    -moz-animation: flash .5s linear infinite;
+    -ms-animation: flash .5s linear infinite;
+    -o-animation: flash .5s linear infinite;
+    animation: flash .5s linear infinite;
 }
 
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 #mood img {
-	position: absolute;
-	width: 60%;
-	height: auto;
-	bottom: 25px;
-	left: 37px;
+    position: absolute;
+    width: 60%;
+    height: auto;
+    bottom: 25px;
+    left: 37px;
 }
 
 p {
-	text-align: center;
-	margin: 35px auto 60px auto;
-	font-weight: 500;
+    text-align: center;
+    margin: 35px auto 60px auto;
+    font-weight: 500;
 }
 
 p:nth-child(2), p:nth-child(4), p:nth-child(6) {
-	margin-top: -35px;
-	text-align: center;
-	text-decoration: none;
+    margin-top: -35px;
+    text-align: center;
+    text-decoration: none;
 }
 
 p:nth-child(1) {
-	margin-top: -15px;
+    margin-top: -15px;
 }
 
 p:nth-child(6) {
-	margin-bottom: -25px;
+    margin-bottom: -25px;
 }
 
 #the_score {
-	background: transparent url('img/jedi.png') no-repeat 50% 50%;
-	background-size: 135px 100%;
+    background: transparent url('img/jedi.png') no-repeat 50% 50%;
+    background-size: 135px 100%;
 }
 
 #the_timer {
-	background: transparent url('img/imperial.png') no-repeat 50% 50%;
-	background-size: 135px 100%;
+    background: transparent url('img/imperial.png') no-repeat 50% 50%;
+    background-size: 135px 100%;
 }
 
 #the_accuracy {
-	background: transparent url('img/rebel.png') no-repeat 50% 50%;
-	background-size: 135px 100%;
+    background: transparent url('img/rebel.png') no-repeat 50% 50%;
+    background-size: 135px 100%;
 }
 
 #reset {
-	position: relative;
-	margin: 20px auto 0 auto;
-	width: 180px;
-	height: 100px;
+    position: relative;
+    margin: 20px auto 0 auto;
+    width: 180px;
+    height: 100px;
+    cursor: pointer;
 }
 
 #reset img {
-	width: 100%;
+    width: 100%;
 }
 
 .cards {
-	display: inline-block;
-	width: 1000px;
-	height: 775px;
-	margin: 0;	
+    display: inline-block;
+    width: 1000px;
+    height: 775px;
+    margin: 0;
 }
 
 .cards .card_front {
-	transform: rotateX(180deg);
-	backface-visibility: hidden;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
 }
 
 .card_container {
-	display: inline-block;
-	width: 150px;
-	height: 220px;
-	margin: 5px;
-	border: none;
+    display: inline-block;
+    width: 150px;
+    height: 220px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
 }
 
 .card_container img {
-	position: absolute;
+    position: absolute;
 }
 
 #end_credits {
-	position: relative;
-	bottom: -100px;
-	margin: 0 auto;
+    position: relative;
+    bottom: -100px;
+    margin: 0 auto;
 }
