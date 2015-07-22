@@ -59,6 +59,9 @@ function reset() {
     $('#start_music').trigger('pause');
     $('#start_music').prop('currentTime', 0);
 
+    
+    $('#mood').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+
 } //End function reset()
 
 function click_card(card_back_id) {
@@ -100,6 +103,7 @@ function click_card(card_back_id) {
         random_id = id[fx];
         $(random_id)[0].play();
         console.log("Random number: ", $(random_id));
+
 
 
     first_card_front_src = card_front_id.attr('src');
