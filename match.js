@@ -13,9 +13,11 @@ var current_time = null;
 var time_difference = null;
 var start_timer = null;
 var accuracy = null;
-var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
-var saber_fx = ["saber1.wav", "saber2.wav", "saber3.wav", "saber4.wav", "saber5.wav", "saber6.wav", "saber7.wav", "saber8.wav", "saber9.wav", "saber10.wav", "saber11.wav", "saber12.wav", "saber13.wav", "saber14.wav", "saber15.wav", "saber16.wav", "saber17.wav", "saber18.wav"];
 var random_fx = null;
+var isClicked;
+var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
+//var saber_fx = ["saber1.wav", "saber2.wav", "saber3.wav", "saber4.wav", "saber5.wav", "saber6.wav", "saber7.wav", "saber8.wav", "saber9.wav", "saber10.wav", "saber11.wav", "saber12.wav", "saber13.wav", "saber14.wav", "saber15.wav", "saber16.wav", "saber17.wav", "saber18.wav"];
+
 
 function reset() {
     var source_array = card_array.slice();
@@ -59,8 +61,12 @@ function reset() {
     $('#start_music').trigger('pause');
     $('#start_music').prop('currentTime', 0);
 
-    
-    $('#mood').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+    $('#mood').css("-webkit-animation", "flash .5s linear infinite");
+    $('#mood').css("-moz-animation", "flash .5s linear infinite");
+    $('#mood').css("-ms-animation", "flash .5s linear infinite");
+    $('#mood').css("-o-animation", "flash .5s linear infinite");
+    $('#mood').css("animation", "flash .5s linear infinite");
+
 
 } //End function reset()
 
@@ -150,7 +156,7 @@ function click_card(card_back_id) {
             var red_laser_x = $('#red_laser').offset().left;
             var position_delta = death_star_x - red_laser_x - 72;
             console.log('Position Delta: ', position_delta);
-            var travel_time = (position_delta / 10) * time_per_10px;
+            var travel_time = (position_delta / 4) * time_per_10px;
             $('#red_laser').animate({left: "+=" + position_delta + "px"}, travel_time, function () {
 
                 var pos1 = $('.fighter').position();
@@ -243,7 +249,13 @@ $(document).ready(function () {
 function duel_music() {
     console.log('DUEL MUSIC!');
     $('#start_music').trigger('play');
+    $('#mood').css("-webkit-animation", "none");
+    $('#mood').css("-moz-animation", "none");
+    $('#mood').css("-ms-animation", "none");
+    $('#mood').css("-o-animation", "none");
+    $('#mood').css("animation", "none");
 }
+
 
 
 

@@ -142,7 +142,25 @@ GAME BODY
     width: 180px;
     height: 100px;
     cursor: pointer;
+    -webkit-animation: flash .5s linear infinite;
+    -moz-animation: flash .5s linear infinite;
+    -ms-animation: flash .5s linear infinite;
+    -o-animation: flash .5s linear infinite;
+    animation: flash .5s linear infinite;
 }
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 #mood img {
     position: absolute;
