@@ -9,6 +9,7 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 40px;
     color: #fff020;
+    overflow: hidden;
 }
 
 #xwing_final {
@@ -18,6 +19,7 @@ body {
     height: 50px;
     right: 35px;
     top: 15px;
+
 }
 
 /********************************
