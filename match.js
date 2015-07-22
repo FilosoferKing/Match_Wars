@@ -56,6 +56,9 @@ function reset() {
 
     console.log('Game board reset');
 
+    $('#start_music').trigger('pause');
+    $('#start_music').prop('currentTime', 0);
+
 } //End function reset()
 
 function click_card(card_back_id) {
@@ -235,7 +238,7 @@ $(document).ready(function () {
 
 function duel_music() {
     console.log('DUEL MUSIC!');
-    $('body').append('<embed id="embed_player" src="img/duel.mp3" autostart="true" hidden="true"></embed>');
+    $('#start_music').trigger('play');
 }
 
 
