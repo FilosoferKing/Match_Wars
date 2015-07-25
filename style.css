@@ -10,6 +10,7 @@ body {
     font-size: 40px;
     color: #fff020;
     overflow: hidden;
+    height: 100vh;
 }
 
 #xwing_final {
