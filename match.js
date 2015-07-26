@@ -181,6 +181,11 @@ function click_card(card_back_id) {
             });
             score_post = (score = score += 1);
             console.log('Score: ', score_post);
+            $('#score').html("").append(score_post);
+
+            accuracy = Math.floor((score_post / tries) * 100);
+            $('#accuracy').html("").append(accuracy, "%");
+            console.log('Accuracy: ', (Math.floor((score_post / tries) * 100)));
 
             /*Darth & Yoda Sound Fx*/
             if (card_front_src == "img/vadercard.png") {
@@ -196,9 +201,6 @@ function click_card(card_back_id) {
                 clearInterval(start_timer);
                 console.log('You won the game!');
 
-                accuracy = Math.floor((score_post / tries) * 100);
-                $('#accuracy').html("").append(accuracy, "%")
-                console.log('Accuracy: ', (Math.floor((score_post / tries) * 100)));
 
                 $('#death_star').append().attr('src', 'img/explode.png').animate({width: "+=20px", height: "+=20px"});
                 $('#xwing_final').show().animate({
