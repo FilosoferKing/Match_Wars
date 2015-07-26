@@ -11,6 +11,7 @@ body {
     color: #fff020;
     overflow: hidden;
     height: 100vh;
+    position: relative;
 }
 
 #xwing_final {
@@ -221,6 +222,7 @@ p:nth-child(6) {
 }
 
 .cards {
+    position: relative;
     display: inline-block;
     width: 1000px;
     height: 775px;
@@ -247,6 +249,22 @@ p:nth-child(6) {
 
 #end_credits {
     position: relative;
-    bottom: -100px;
-    margin: 0 auto;
+    margin-left: -150px;
+    bottom: -200px;
+    width: 2500px;
+    -webkit-transform: rotateX(55deg);
+    -moz-transform: rotateX(55deg);
+    -ms-transform: rotateX(55deg);
+    -o-transform: rotateX(55deg);
+    transform: rotateX(55deg);
+}
+
+
+#darth_jet {
+    position: absolute;
+    top: -900px;
+    left: -800px;
+    z-index: 100;
+    width: 900px;
+    height: 800px;
 }
