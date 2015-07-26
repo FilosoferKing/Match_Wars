@@ -25,6 +25,13 @@ function reset() {
 
     $('.cards img').remove();
 
+    $('.game').css({
+        "-webkit-perspective": "none",
+        "-moz-perspective": "none",
+        "-ms-perspective": "none",
+        "-o-perspective": "none",
+        "perspective": "none"});
+
     $('.card_container').remove(); //remove div conatainers and cards from DOM
     while (source_array.length) { //Load DOM with div containers and cards
         var random_card_index = Math.floor(Math.random() * source_array.length);
@@ -60,6 +67,15 @@ function reset() {
 
     $('#start_music').trigger('pause');
     $('#start_music').prop('currentTime', 0);
+
+    $('#end_music').trigger('pause');
+    $('#end_music').prop('currentTime', 0);
+
+    $('#xwing_music').trigger('pause');
+    $('#xwing_music').prop('currentTime', 0);
+
+    $('#vader_vocal').trigger('pause');
+    $('#vader_vocal').prop('currentTime', 0);
 
     $('#mood').css("-webkit-animation", "flash .5s linear infinite");
     $('#mood').css("-moz-animation", "flash .5s linear infinite");
@@ -165,7 +181,16 @@ function click_card(card_back_id) {
             });
             score_post = (score = score += 1);
             console.log('Score: ', score_post);
-            $('#score').html("").append(score_post);
+
+            /*Darth & Yoda Sound Fx*/
+            if (card_front_src == "img/vadercard.png") {
+                console.log('THIS IS VADER!');
+                vader_vocal()
+            }
+            /*if (card_front_src == "img/yodacard.png") {
+             console.log('THIS IS YODA!');
+             $('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
+             }*/
 
             if (score_post == card_array.length) { //Game won actions
                 clearInterval(start_timer);
@@ -184,8 +209,22 @@ function click_card(card_back_id) {
                 }, 8000);
                 $('.fighter').hide();
 
-                $('.cards').append('<img id="end_credits" src="img/endcredits.png">');
-                $('#end_credits').animate({bottom: "+=900px"}, 10000);
+                $('.card_container').remove(); //remove div conatainers and cards from DOM
+
+                $('.game').css({
+                        "-webkit-perspective": "500px",
+                        "-moz-perspective": "500px",
+                        "-ms-perspective": "500px",
+                        "-o-perspective": "500px",
+                        "perspective": "500px"}).append('<img id="end_credits" src="img/endcredits.png">');
+                $('#end_credits').animate({bottom: "+=1150", left: "+=650px", width: "-=2500px"}, 15000, "linear");
+
+
+
+                $('#start_music').trigger('pause');
+                $('#start_music').prop('currentTime', 0);
+                end_music();
+                xwing_music();
             }
         } else {
             console.log("Sorry, not a match.");
@@ -254,6 +293,28 @@ function duel_music() {
     $('#mood').css("-ms-animation", "none");
     $('#mood').css("-o-animation", "none");
     $('#mood').css("animation", "none");
+}
+
+function end_music() {
+    console.log('END MUSIC!');
+    $('#end_music').trigger('play');
+}
+
+function xwing_music() {
+    console.log('XWING MUSIC!');
+    setTimeout(function() {
+        $('#xwing_music').trigger('play');
+    }, 1000);
+}
+
+function vader_vocal() {
+    console.log('DARTH VOICE!');
+        $('#vader_vocal').trigger('play');
+        $('body').append('<img id="darth_jet" src="img/vaderfighter.png" alt=""Darth Fighter">');
+        $('#darth_jet').animate({top: "+=2500px", left: "+=2500px"}, 4000, function() {
+            $(this).hide();
+        });
+
 }
 
 
