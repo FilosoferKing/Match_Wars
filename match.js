@@ -197,7 +197,7 @@ function click_card(card_back_id) {
              $('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
              }*/
 
-            if (score_post == card_array.length) { //Game won actions
+            if (score_post == score_post/*card_array.length*/) { //Game won actions
                 clearInterval(start_timer);
                 console.log('You won the game!');
 
@@ -213,13 +213,9 @@ function click_card(card_back_id) {
 
                 $('.card_container').remove(); //remove div conatainers and cards from DOM
 
-                $('.game').css({
-                        "-webkit-perspective": "500px",
-                        "-moz-perspective": "500px",
-                        "-ms-perspective": "500px",
-                        "-o-perspective": "500px",
-                        "perspective": "500px"}).append('<img id="end_credits" src="img/endcredits.png">');
-                $('#end_credits').animate({bottom: "+=1150", left: "+=650px", width: "-=2500px"}, 15000, "linear");
+                $('.game #title').addClass('titles');
+                $('.game #text').addClass('titlecontent');
+                $('.game #p').css({"display": "block"});
 
 
 
