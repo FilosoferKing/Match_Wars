@@ -32,6 +32,11 @@ function reset() {
         "-o-perspective": "none",
         "perspective": "none"});
 
+    //End Credits reset
+    $('.game #title').removeClass('titles');
+    $('.game #text').removeClass('titlecontent');
+    $('.game #p').css({"display": "none"});
+
     $('.card_container').remove(); //remove div conatainers and cards from DOM
     while (source_array.length) { //Load DOM with div containers and cards
         var random_card_index = Math.floor(Math.random() * source_array.length);
@@ -208,18 +213,17 @@ function click_card(card_back_id) {
                     top: "+=1080px",
                     width: "+=1400px",
                     height: "+=1400px"
-                }, 8000);
+                }, 8000, function(){
+                        $(this).hide();
+                    }
+                );
                 $('.fighter').hide();
 
                 $('.card_container').remove(); //remove div conatainers and cards from DOM
 
-                $('.game').css({
-                        "-webkit-perspective": "500px",
-                        "-moz-perspective": "500px",
-                        "-ms-perspective": "500px",
-                        "-o-perspective": "500px",
-                        "perspective": "500px"}).append('<img id="end_credits" src="img/endcredits.png">');
-                $('#end_credits').animate({bottom: "+=1150", left: "+=650px", width: "-=2500px"}, 15000, "linear");
+                $('.game #title').addClass('titles');
+                $('.game #text').addClass('titlecontent');
+                $('.game #p').css({"display": "block"});
 
 
 
@@ -227,6 +231,12 @@ function click_card(card_back_id) {
                 $('#start_music').prop('currentTime', 0);
                 end_music();
                 xwing_music();
+
+                $('#mood').css("-webkit-animation", "none");
+                $('#mood').css("-moz-animation", "none");
+                $('#mood').css("-ms-animation", "none");
+                $('#mood').css("-o-animation", "none");
+                $('#mood').css("animation", "none");
             }
         } else {
             console.log("Sorry, not a match.");
