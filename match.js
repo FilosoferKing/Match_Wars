@@ -32,6 +32,11 @@ function reset() {
         "-o-perspective": "none",
         "perspective": "none"});
 
+    //End Credits reset
+    $('.game #title').removeClass('titles');
+    $('.game #text').removeClass('titlecontent');
+    $('.game #p').css({"display": "none"});
+
     $('.card_container').remove(); //remove div conatainers and cards from DOM
     while (source_array.length) { //Load DOM with div containers and cards
         var random_card_index = Math.floor(Math.random() * source_array.length);
@@ -197,7 +202,7 @@ function click_card(card_back_id) {
              $('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
              }*/
 
-            if (score_post == score_post/*card_array.length*/) { //Game won actions
+            if (score_post == card_array.length) { //Game won actions
                 clearInterval(start_timer);
                 console.log('You won the game!');
 
@@ -208,7 +213,10 @@ function click_card(card_back_id) {
                     top: "+=1080px",
                     width: "+=1400px",
                     height: "+=1400px"
-                }, 8000);
+                }, 8000, function(){
+                        $(this).hide();
+                    }
+                );
                 $('.fighter').hide();
 
                 $('.card_container').remove(); //remove div conatainers and cards from DOM
@@ -223,6 +231,12 @@ function click_card(card_back_id) {
                 $('#start_music').prop('currentTime', 0);
                 end_music();
                 xwing_music();
+
+                $('#mood').css("-webkit-animation", "none");
+                $('#mood').css("-moz-animation", "none");
+                $('#mood').css("-ms-animation", "none");
+                $('#mood').css("-o-animation", "none");
+                $('#mood').css("animation", "none");
             }
         } else {
             console.log("Sorry, not a match.");

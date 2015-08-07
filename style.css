@@ -271,16 +271,16 @@ p:nth-child(6) {
 
 #p {
     display: none;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .titles {
     position: absolute;
-    width: 18em;
+    width: 12em;
     height: 50em;
     bottom: 0;
     left: 50%;
-    margin-left: -9em;
+    margin-left: -6em;
     font-size: 350%;
     font-weight: bold;
     text-align: justify;
@@ -303,7 +303,7 @@ p:nth-child(6) {
 .titlecontent {
     position: absolute;
     top: 100%;
-    animation: scroll 100s linear 1s infinite;
+    animation: scroll 150s linear 1s infinite;
 }
 
 @keyframes scroll {
