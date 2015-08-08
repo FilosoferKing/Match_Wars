@@ -204,7 +204,7 @@ function click_card(card_back_id) {
              $('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
              }*/
 
-            if (score_post == score_post/*card_array.length*/) { //Game won actions
+            if (score_post == card_array.length) { //Game won actions
                 clearInterval(start_timer);
                 console.log('You won the game!');
 
