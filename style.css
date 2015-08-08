@@ -221,6 +221,27 @@ p:nth-child(6) {
     width: 100%;
 }
 
+.reset_flash {
+    cursor: pointer;
+    -webkit-animation: reset_flash .5s linear infinite;
+    -moz-animation: reset_flash .5s linear infinite;
+    -ms-animation: reset_flash .5s linear infinite;
+    -o-animation: reset_flash .5s linear infinite;
+    animation: reset_flash .5s linear infinite;
+}
+
+@keyframes reset_flash {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .cards {
     position: relative;
     display: inline-block;

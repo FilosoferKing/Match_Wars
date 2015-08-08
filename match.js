@@ -24,6 +24,8 @@ function reset() {
     source_array = source_array.concat(source_array);
 
     $('.cards img').remove();
+    $('#reset_img').removeClass('reset_flash');
+    $('span').show();
 
     $('.game').css({
         "-webkit-perspective": "none",
@@ -202,7 +204,7 @@ function click_card(card_back_id) {
              $('body').append('<embed id="embed_player" src="img/force.wav" autostart="true" hidden="true"></embed>');
              }*/
 
-            if (score_post == card_array.length) { //Game won actions
+            if (score_post == score_post/*card_array.length*/) { //Game won actions
                 clearInterval(start_timer);
                 console.log('You won the game!');
 
@@ -236,7 +238,7 @@ function click_card(card_back_id) {
                         if (i <= 8) {
                             credit_loop();
                         }
-                    }, 8000)
+                    }, 8000);
                 }
 
                 setTimeout(function(){
@@ -244,6 +246,10 @@ function click_card(card_back_id) {
                     console.log("Loop started!");
                 }, 16000);
 
+                setTimeout(function() {
+                    $('#reset_img').addClass('reset_flash');
+                    $('span').fadeOut(1000);
+                }, 80000);
 
                 $('#start_music').trigger('pause');
                 $('#start_music').prop('currentTime', 0);
