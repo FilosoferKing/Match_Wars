@@ -225,6 +225,24 @@ function click_card(card_back_id) {
                 $('.game #text').addClass('titlecontent');
                 $('.game #p').css({"display": "block"});
 
+                //Loop to remove distant end_credits
+                var i = 1;
+
+                function credit_loop(){
+                    setTimeout(function(){
+                        $('span:nth-child(' + i + ')').fadeTo(2000, 0);
+                        console.log("Time OUT!");
+                        i++;
+                        if (i <= 8) {
+                            credit_loop();
+                        }
+                    }, 8000)
+                }
+
+                setTimeout(function(){
+                    credit_loop();
+                    console.log("Loop started!");
+                }, 16000);
 
 
                 $('#start_music').trigger('pause');
