@@ -348,7 +348,7 @@ function vader_vocal() {
         $('#vader_vocal').trigger('play');
         $('body').append('<img id="darth_jet" src="img/vaderfighter.png" alt=""Darth Fighter">');
         $('#darth_jet').animate({top: "+=2500px", left: "+=2500px"}, 4000, function() {
-            $(this).hide();
+            $(this).remove();
         });
 
 }
