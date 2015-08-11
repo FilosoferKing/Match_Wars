@@ -16,12 +16,33 @@ var accuracy = null;
 var random_fx = null;
 var isClicked;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
+var fixed_card_array = [
+    "yodacard.png",
+    "chewcard.png",
+    "hancard.png",
+    "c3pocard.png",
+    "maulcard.png",
+    "leiacard.png",
+    "leiacard.png",
+    "yodacard.png",
+    "chewcard.png",
+    "hancard.png",
+    "c3pocard.png",
+    "maulcard.png",
+    "r2d2card.png",
+    "r2d2card.png",
+    "vadercard.png",
+    "vadercard.png",
+    "lukecard.png",
+    "lukecard.png"];
+
 //var saber_fx = ["saber1.wav", "saber2.wav", "saber3.wav", "saber4.wav", "saber5.wav", "saber6.wav", "saber7.wav", "saber8.wav", "saber9.wav", "saber10.wav", "saber11.wav", "saber12.wav", "saber13.wav", "saber14.wav", "saber15.wav", "saber16.wav", "saber17.wav", "saber18.wav"];
 
 
 function reset() {
     var source_array = card_array.slice();
     source_array = source_array.concat(source_array);
+    console.log(source_array);
 
     $('.cards img').remove();
     $('#reset_img').removeClass('reset_flash');
@@ -39,17 +60,31 @@ function reset() {
     $('.game #text').removeClass('titlecontent');
     $('.game #p').css({"display": "none"});
 
-    $('.card_container').remove(); //remove div conatainers and cards from DOM
-    while (source_array.length) { //Load DOM with div containers and cards
-        var random_card_index = Math.floor(Math.random() * source_array.length);
-        var card_image = source_array[random_card_index];
+    //Random Card generator
+    //$('.card_container').remove(); //remove div conatainers and cards from DOM
+    //while (source_array.length) { //Load DOM with div containers and cards
+    //    var random_card_index = Math.floor(Math.random() * source_array.length);
+    //    var card_image = source_array[random_card_index];
+    //    var front_image = $('<img>').addClass("card_front").attr('src', 'img/' + card_image);
+    //    var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src', 'img/dscard.png');
+    //    card_container = $('<div>').addClass('card_container');
+    //    card_container.append(front_image, back_image);
+    //    $('.cards').append(card_container);
+    //    source_array.splice(random_card_index, 1);
+    //}
+
+    //Controlled card generator
+    $('.card_container').remove();
+    for (var i = 0; i < fixed_card_array.length; i++){
+        var card_image = fixed_card_array[i];
         var front_image = $('<img>').addClass("card_front").attr('src', 'img/' + card_image);
         var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src', 'img/dscard.png');
         card_container = $('<div>').addClass('card_container');
         card_container.append(front_image, back_image);
         $('.cards').append(card_container);
-        source_array.splice(random_card_index, 1);
     }
+
+
     //Score Reset
     score = 0;
     $('#score').html("").append(score);
