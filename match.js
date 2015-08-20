@@ -61,28 +61,28 @@ function reset() {
     $('.game #p').css({"display": "none"});
 
     //Random Card generator
-    //$('.card_container').remove(); //remove div conatainers and cards from DOM
-    //while (source_array.length) { //Load DOM with div containers and cards
-    //    var random_card_index = Math.floor(Math.random() * source_array.length);
-    //    var card_image = source_array[random_card_index];
-    //    var front_image = $('<img>').addClass("card_front").attr('src', 'img/' + card_image);
-    //    var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src', 'img/dscard.png');
-    //    card_container = $('<div>').addClass('card_container');
-    //    card_container.append(front_image, back_image);
-    //    $('.cards').append(card_container);
-    //    source_array.splice(random_card_index, 1);
-    //}
-
-    //Controlled card generator
-    $('.card_container').remove();
-    for (var i = 0; i < fixed_card_array.length; i++){
-        var card_image = fixed_card_array[i];
+    $('.card_container').remove(); //remove div conatainers and cards from DOM
+    while (source_array.length) { //Load DOM with div containers and cards
+        var random_card_index = Math.floor(Math.random() * source_array.length);
+        var card_image = source_array[random_card_index];
         var front_image = $('<img>').addClass("card_front").attr('src', 'img/' + card_image);
         var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src', 'img/dscard.png');
         card_container = $('<div>').addClass('card_container');
         card_container.append(front_image, back_image);
         $('.cards').append(card_container);
+        source_array.splice(random_card_index, 1);
     }
+
+    //Controlled card generator
+    //$('.card_container').remove();
+    //for (var i = 0; i < fixed_card_array.length; i++){
+    //    var card_image = fixed_card_array[i];
+    //    var front_image = $('<img>').addClass("card_front").attr('src', 'img/' + card_image);
+    //    var back_image = $('<img>').addClass("card_back").attr('onclick', 'click_card(this)').attr('src', 'img/dscard.png');
+    //    card_container = $('<div>').addClass('card_container');
+    //    card_container.append(front_image, back_image);
+    //    $('.cards').append(card_container);
+    //}
 
 
     //Score Reset
