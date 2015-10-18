@@ -206,6 +206,7 @@ function click_card(card_back_id) {
         //console.log("First card clicked: ", second_card_clicked);
         second_card_front_src = card_front_id.attr('src');
         second_card_back_id = card_back_id;
+        tries = tries + 1;
         //console.log('Tries: ', tries = tries + 1)
     } else {
         if (first_card_front_src == second_card_front_src) {
@@ -215,6 +216,7 @@ function click_card(card_back_id) {
             $('.fighter').animate({left: "+=72px"}, 1000);
             //console.log('First clicked id: ', first_card_back_id);
             second_card_clicked = false;
+            tries = tries + 1;
 
             var red_laser_x = $('#red_laser').offset().left;//gets location of the red laser
             var position_delta = death_star_x - red_laser_x - 72;//calculates new position for the red laser
