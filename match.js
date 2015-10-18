@@ -16,26 +16,7 @@ var accuracy = null;
 var random_fx = null;
 var isClicked;
 var card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "vadercard.png", "leiacard.png", "r2d2card.png", "lukecard.png"];
-var fixed_card_array = [
-    "yodacard.png",
-    "chewcard.png",
-    "hancard.png",
-    "c3pocard.png",
-    "maulcard.png",
-    "leiacard.png",
-    "leiacard.png",
-    "yodacard.png",
-    "chewcard.png",
-    "hancard.png",
-    "c3pocard.png",
-    "maulcard.png",
-    "r2d2card.png",
-    "r2d2card.png",
-    "vadercard.png",
-    "vadercard.png",
-    "lukecard.png",
-    "lukecard.png"];
-
+var fixed_card_array = ["yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "leiacard.png", "leiacard.png", "yodacard.png", "chewcard.png", "hancard.png", "c3pocard.png", "maulcard.png", "r2d2card.png", "r2d2card.png", "vadercard.png", "vadercard.png", "lukecard.png", "lukecard.png"];
 //var saber_fx = ["saber1.wav", "saber2.wav", "saber3.wav", "saber4.wav", "saber5.wav", "saber6.wav", "saber7.wav", "saber8.wav", "saber9.wav", "saber10.wav", "saber11.wav", "saber12.wav", "saber13.wav", "saber14.wav", "saber15.wav", "saber16.wav", "saber17.wav", "saber18.wav"];
 
 /***************************************
