@@ -48,7 +48,7 @@ function reset() {
     //double card array to make 18 cards
     var source_array = card_array.slice();
     source_array = source_array.concat(source_array);
-    console.log(source_array);
+    //console.log(source_array);
 
     //Random Card generator
     $('.card_container').remove(); //remove div conatainers and cards from DOM
@@ -82,7 +82,7 @@ function reset() {
     //Timer Reset
     clearInterval(start_timer);
     start_timer = 0;
-    console.log('Timer reset: ', start_timer)
+    //console.log('Timer reset: ', start_timer)
     static_time = new Date();
     $('#timer_text').html("Time");
     $('#timer').html("0");
@@ -98,7 +98,7 @@ function reset() {
     $('#xwing_final').stop().hide().css({"right": "35px", "top": "15px", "width": "50px", "height": "50px"});
     $('.fighter').stop().css({"top": "0", "left": "280px"}).show();
 
-    console.log('Game board reset');
+    //console.log('Game board reset');
 
 
     //resets all music and vocals
@@ -136,7 +136,7 @@ function click_card(card_back_id) {
     //test = card_back_id;
 
     card_back_id = $(card_back_id);//obtains card id for card that was clicked
-    console.log('Click occured.', card_back_id);
+    //console.log('Click occured.', card_back_id);
 
     first_card_back_id = card_back_id;//stores id of first card clicked on
 
@@ -170,12 +170,12 @@ function click_card(card_back_id) {
         var random_id;
         random_id = id[fx];
         $(random_id)[0].play();
-        console.log("Random number: ", $(random_id));
+        //console.log("Random number: ", $(random_id));
 
 
 
     first_card_front_src = card_front_id.attr('src');
-    console.log('Src: ', first_card_front_src);
+    //console.log('Src: ', first_card_front_src);
 
     //Initial Card Flip animation
     card_back_id.css({
@@ -192,54 +192,54 @@ function click_card(card_back_id) {
     //Interval Timer on Card Click -- starts timer for game once a card is clicked
     if (start_timer == 0) {
         start_timer = setInterval(function () {
-            console.log("Timer Check");
+            //console.log("Timer Check");
             current_time = new Date();
             time_difference = Math.floor((current_time - static_time) / 1000);
             $('#timer').html("").append(time_difference);
-            console.log(time_difference);
+            //console.log(time_difference);
         }, 1000);
     }
 
     if (!second_card_clicked) {
         first_card_front_id = card_front_id;
         second_card_clicked = true;
-        console.log("First card clicked: ", second_card_clicked);
+        //console.log("First card clicked: ", second_card_clicked);
         second_card_front_src = card_front_id.attr('src');
         second_card_back_id = card_back_id;
-        console.log('Tries: ', tries = tries + 1)
+        //console.log('Tries: ', tries = tries + 1)
     } else {
         if (first_card_front_src == second_card_front_src) {
-            console.log('You have a match');
+            //console.log('You have a match');
             card_front_id.animate({width: "0%"}, 500).fadeOut(500);
             first_card_front_id.animate({width: "0%"}, 500).fadeOut(500);
             $('.fighter').animate({left: "+=72px"}, 1000);
-            console.log('First clicked id: ', first_card_back_id);
+            //console.log('First clicked id: ', first_card_back_id);
             second_card_clicked = false;
 
             var red_laser_x = $('#red_laser').offset().left;//gets location of the red laser
             var position_delta = death_star_x - red_laser_x - 72;//calculates new position for the red laser
-            console.log('Position Delta: ', position_delta);
+            //console.log('Position Delta: ', position_delta);
             var travel_time = (position_delta / 4) * time_per_10px;//calculates the amount of time it will travel
             $('#red_laser').animate({left: "+=" + position_delta + "px"}, travel_time, function () {
 
                 var pos1 = $('.fighter').position();
-                console.log(pos1);
+                //console.log(pos1);
                 $(this).css(pos1).css({"left": "50px", "top": "45px"});//movies fighter jet after each card match
             });
 
             //adds 1 to the score after each match
             score_post = (score = score += 1);
-            console.log('Score: ', score_post);
+            //console.log('Score: ', score_post);
             $('#score').html("").append(score_post);
 
             //calculates accuracy of cards matched
             accuracy = Math.floor((score_post / tries) * 100);
             $('#accuracy').html("").append(accuracy, "%");
-            console.log('Accuracy: ', (Math.floor((score_post / tries) * 100)));
+            //console.log('Accuracy: ', (Math.floor((score_post / tries) * 100)));
 
             /*Darth & Yoda Sound Fx*/
             if (card_front_src == "img/vadercard.png") {
-                console.log('THIS IS VADER!');
+                //console.log('THIS IS VADER!');
                 vader_vocal()//runs vader fighter jet animation
             }
             /*if (card_front_src == "img/yodacard.png") {
@@ -249,7 +249,7 @@ function click_card(card_back_id) {
 
             if (score_post == card_array.length) { //Game won actions
                 clearInterval(start_timer);
-                console.log('You won the game!');
+                //console.log('You won the game!');
 
                 //animation for exploding death star and x-wing flying off the screen
                 $('#death_star').append().attr('src', 'img/explode.png').animate({width: "+=20px", height: "+=20px"});
@@ -276,7 +276,7 @@ function click_card(card_back_id) {
                 function credit_loop(){
                     setTimeout(function(){
                         $('span:nth-child(' + i + ')').fadeTo(2000, 0);
-                        console.log("Time OUT!");
+                        //console.log("Time OUT!");
                         i++;
                         if (i <= 8) {
                             credit_loop();
@@ -286,7 +286,7 @@ function click_card(card_back_id) {
 
                 setTimeout(function(){
                     credit_loop();
-                    console.log("Loop started!");
+                    //console.log("Loop started!");
                 }, 16000);
 
                 //sets "reset game" img to flash
@@ -308,13 +308,13 @@ function click_card(card_back_id) {
                 $('#mood').css("animation", "none");
             }
         } else {
-            console.log("Sorry, not a match.");
+            //console.log("Sorry, not a match.");
             second_card_clicked = false;
 
 
-            console.log('First back: ', first_card_back_id)
+            //console.log('First back: ', first_card_back_id)
 
-            console.log('Second back: ', second_card_back_id);
+            //console.log('Second back: ', second_card_back_id);
             var pos1 = $('.fighter').position();
 
             //animation for death star shooting green laser
@@ -326,7 +326,7 @@ function click_card(card_back_id) {
 
                         $('#green_laser').animate({width: "+=790px"}, 400, function () {
                             var pos2 = $('#death_star').position();
-                            console.log(pos2);
+                            //console.log(pos2);
                             $('#green_laser, #green_laser_1, #green_laser_2, #green_laser_3').css("width", "0");
                         });
                     });
@@ -365,8 +365,8 @@ function click_card(card_back_id) {
 
 $(document).ready(function () {
     death_star_x = $('#death_star').offset().left;//get position of death star
-    console.log($('#death_star').position());
-    console.log($('#death_star').offset());
+    //console.log($('#death_star').position());
+    //console.log($('#death_star').offset());
 });
 
 /***************************************
@@ -378,7 +378,7 @@ $(document).ready(function () {
  * FUNCTIONS USED: none
  */
 function duel_music() {
-    console.log('DUEL MUSIC!');
+    //console.log('DUEL MUSIC!');
     $('#start_music').trigger('play');
     $('#mood').css("-webkit-animation", "none");
     $('#mood').css("-moz-animation", "none");
@@ -396,7 +396,7 @@ function duel_music() {
  * FUNCTIONS USED: none
  */
 function end_music() {
-    console.log('END MUSIC!');
+    //console.log('END MUSIC!');
     $('#end_music').trigger('play');
 }
 
@@ -409,7 +409,7 @@ function end_music() {
  * FUNCTIONS USED: none
  */
 function xwing_music() {
-    console.log('XWING MUSIC!');
+    //console.log('XWING MUSIC!');
     setTimeout(function() {
         $('#xwing_music').trigger('play');
     }, 1000);
@@ -424,7 +424,7 @@ function xwing_music() {
  * FUNCTIONS USED: none
  */
 function vader_vocal() {
-    console.log('DARTH VOICE!');
+    //console.log('DARTH VOICE!');
         $('#vader_vocal').trigger('play');
         $('body').append('<img id="darth_jet" src="img/vaderfighter.png" alt=""Darth Fighter">');
         $('#darth_jet').animate({top: "+=2500px", left: "+=2500px"}, 4000, function() {
