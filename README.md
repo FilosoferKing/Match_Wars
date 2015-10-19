@@ -17,6 +17,8 @@ Goal: Match all cards as accurately as possible in the least amount of time.
   * The most fun and challenging aspect of this project was using the offset() function 
     to calculate the position of the red laser in opposition to the Death Star so the
     laser would not pass the target when it moved forward with each new card match.
+  * I enjoyed using CSS animation to rotate the cards creating the flip motion. Since there
+    were two cards stacked creating a back and face, timing was critical in making the flip seemless.
 
 
 
