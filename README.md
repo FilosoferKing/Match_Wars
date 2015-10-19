@@ -2,8 +2,8 @@
 
 ![Match Wars Image](/img/memorymatch.png)
 
-Description: Match Wars is a card matching game to test your memory. <br>
-Goal: Match all cards as accurately as possible in the least amount of time.
+**Description**: Match Wars is a card matching game to test your memory. <br>
+**Goal**: Match all cards as accurately as possible in the least amount of time.
 
 ##Features
 * *Duel of Fates* theme music during play. (optional)
