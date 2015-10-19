@@ -1,4 +1,4 @@
-# MATCH WARS - Memory Match Game
+# Match Wars
 
 ![Match Wars Image](/img/memorymatch.png)
 
