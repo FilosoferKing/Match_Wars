@@ -1,8 +1,13 @@
 # MATCH WARS - Memory Match Game
 
 ![Match Wars Image](/img/memorymatch.png)
-![Match Wars Image](/img/matchwarsendgame.png)
 
+Description: Match Wars is a card matching game to test your memory. 
+Goal: Match all cards as accurately as possible in the least amount of time.
+
+##Features
+* *Duel of Fates* theme music during play. (optional)
+* Lightsaber sound effects during play on card click. 
 
 ##Design Document - <a href="https://drive.google.com/open?id=0B7eOl4joefDuczZ3Ul9sbFFPZTA" target="_blank">Found Here</a>
 
