@@ -9,7 +9,13 @@ Goal: Match all cards as accurately as possible in the least amount of time.
 * *Duel of Fates* theme music during play. (optional)
 * Lightsaber sound effects during play on card click. 
 * X-Wing and Death Star animation depending on match or miss.
+* Card randomization on each new game.
 * Authentic Star Wars inspired end credit crawl.
+
+##Project Notes
+*###Functionality
+  * The most critical obstacle I had to overcome was the matched card detection.
+
 
 
 ##Design Document - <a href="https://drive.google.com/open?id=0B7eOl4joefDuczZ3Ul9sbFFPZTA" target="_blank">Found Here</a>
