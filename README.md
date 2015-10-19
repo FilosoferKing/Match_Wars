@@ -14,8 +14,8 @@ Goal: Match all cards as accurately as possible in the least amount of time.
 
 ##Project Notes
 * **Functionality**
-  * The most challenging aspect of this project was using the offset() function 
-    to calculate the position of red laserin opposition to the Death Star so the
+  * The most fun and challenging aspect of this project was using the offset() function 
+    to calculate the position of the red laser in opposition to the Death Star so the
     laser would not pass the target when it moved forward with each new card match.
 
 
