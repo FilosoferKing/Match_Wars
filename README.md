@@ -13,7 +13,7 @@ Goal: Match all cards as accurately as possible in the least amount of time.
 * Authentic Star Wars inspired end credit crawl.
 
 ##Project Notes
-*###Functionality
+* ###Functionality
   * The most critical obstacle I had to overcome was the matched card detection.
 
 
