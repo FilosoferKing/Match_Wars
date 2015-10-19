@@ -13,7 +13,6 @@ Goal: Match all cards as accurately as possible in the least amount of time.
 * Authentic Star Wars inspired end credit crawl.
 
 ##Project Notes
-* **Functionality**
   * The most fun and challenging aspect of this project was using the offset() function 
     to calculate the position of the red laser in opposition to the Death Star so the
     laser would not pass the target when it moved forward with each new card match.
@@ -22,9 +21,6 @@ Goal: Match all cards as accurately as possible in the least amount of time.
   * My favorite aspect of the game is the end credit crawl and the fighter jet animation. It was 
     a challenge to manipulate the end credit text to have the Star Wars feel to it. I also 
     enjoyed animating the fighter jet using jQuery animation to make it feel like it is flying towards you.
-
-* **Design**
-  * 
 
 
 
