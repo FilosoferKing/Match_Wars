@@ -4,6 +4,8 @@
 
 **Description**: Match Wars is a Star Wars themed card matching game to test your memory. <br>
 **Goal**: Match all cards as accurately as possible in the least amount of time.
+http://github.com - automatic!
+[GitHub](http://github.com)
 
 ##Features
 * *Duel of Fates* theme music during play. (optional)
