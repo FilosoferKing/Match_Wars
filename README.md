@@ -3,7 +3,7 @@
 ![Match Wars Image](/img/memorymatch.png)
 
 **Description**: Match Wars is a Star Wars themed card matching game to test your memory. <br>
-**Goal**: Match all cards as accurately as possible in the least amount of time.
+**Goal**: Match all cards as accurately as possible in the least amount of time. <br>
 <a href="http://www.trevorlinan.com/matchwars" target="_blank">View Project</a>
 
 ##Features
